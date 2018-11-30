@@ -28,7 +28,14 @@ app.post('/', function(req, res) {
       res.send('User added !')
     })
 })
-
+app.post('/groscon', function(req, res) {
+  models.User.create({
+    username: "groscon"
+  })
+    .then(() => {
+      res.send('groscon added !')
+    })
+})
 // Synchronize models
 models.sequelize.sync().then(function() {
   /**
