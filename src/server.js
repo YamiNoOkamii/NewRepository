@@ -11,7 +11,6 @@ app.use(bodyParser.json())
 // Add a bit of logging
 app.use(morgan('short'))
 
-Get all the users defined
 app.get('/', function (req, res) {
   models.User.findAll()
     .then((users) => {
