@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express()
-//const models = require('./models/index');
+const models = require('./models/index');
 
 // Decode json and x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -11,18 +11,16 @@ app.use(bodyParser.json())
 // Add a bit of logging
 app.use(morgan('short'))
 
-// Get all the users defined
-/*app.get('/', function (req, res) {
+Get all the users defined
+app.get('/', function (req, res) {
   models.User.findAll()
     .then((users) => {
       res.json(users)
     })
-})*/
-app.get('/', function (req, res) {
-  res.send("Hello world!")
 })
+
 // Add a new user to the database
-/*app.post('/', function(req, res) {
+app.post('/', function(req, res) {
   models.User.create({
     username: req.body.username
   })
@@ -49,3 +47,4 @@ models.sequelize.sync().then(function() {
   app.listen(process.env.PORT, function() {
     console.log('Express server listening on port 8080');
   });
+});
